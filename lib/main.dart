@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notfa/presentation/screens/board/board_screen.dart';
-import 'package:notfa/presentation/screens/home/ui/home_screen.dart';
-import 'package:notfa/presentation/screens/login/ui/login_screen.dart';
-import 'package:notfa/presentation/screens/nav_bar/ui/home.dart';
+import 'package:notfa/presentation/screens/auth/board/board_screen.dart';
+import 'package:notfa/presentation/screens/auth/login/ui/login_screen.dart';
+import 'package:notfa/presentation/screens/main_screens/nav_bar/ui/home.dart';
+
 
 import 'core/local/cache_helper.dart';
 

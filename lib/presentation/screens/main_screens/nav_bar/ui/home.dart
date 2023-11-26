@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import '../../../../utils/color_resource/color_resources.dart';
+import '../../../../../utils/color_resource/color_resources.dart';
 import '../cubit/home_cubit.dart';
 
 class NavHome extends StatelessWidget {

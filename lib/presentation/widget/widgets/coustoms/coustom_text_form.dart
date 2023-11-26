@@ -36,7 +36,7 @@ class CoustomTextForm extends StatelessWidget {
   FormFieldValidator<String>? validator;
   Function(String)? onSubmitt;
   IconData? prefIcon;
-  IconData? suffixIcone;
+  IconButton? suffixIcone;
   TextInputType text;
   String label;
 
@@ -44,34 +44,33 @@ class CoustomTextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: TextFormField(
-        textAlign: TextAlign.right,
-        textDirection: TextDirection.rtl,
-        controller: controller,
-        validator: validator,
-        onFieldSubmitted: onSubmitt,
-        onChanged: onChange,
-        obscureText: passwordText,
-        style: TextStyle(color: userTextColor, fontSize: textStyle),
-        cursorColor: museTextColor,
-        keyboardType: text,
-        decoration: InputDecoration(
-            suffixIcon: Icon(suffixIcone),
-            suffixIconColor: suffixIconeColor,
-            prefixIconColor: prefIconColor,
-            prefixIcon: Icon(prefIcon),
-            labelText: label,
-            labelStyle: TextStyle(color: labelColor,),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(borderReduse),
-                borderSide: BorderSide(color: borderColor)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(borderReduse),
-                borderSide: BorderSide(color: borderColor)),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: borderColor),
-                borderRadius: BorderRadius.circular(borderReduse))),
-      ),
+      child:  TextFormField(
+      controller: controller,
+      validator: validator,
+      onFieldSubmitted: onSubmitt,
+      onChanged: onChange,
+      obscureText: passwordText,
+      style: TextStyle(color: userTextColor, fontSize: textStyle),
+      cursorColor: museTextColor,
+      keyboardType: text,
+      decoration: InputDecoration(
+          suffixIcon: suffixIcone,
+          suffixIconColor: suffixIconeColor,
+          prefixIconColor: prefIconColor,
+          prefixIcon: Icon(prefIcon),
+          labelText: label,
+          //obscureText: passwordText,
+          labelStyle: TextStyle(color: labelColor),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(borderReduse),
+              borderSide: BorderSide(color: borderColor)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(borderReduse),
+              borderSide: BorderSide(color: borderColor)),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor),
+              borderRadius: BorderRadius.circular(borderReduse))),
+    )
     );
   }
 }

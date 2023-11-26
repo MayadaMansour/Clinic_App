@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../utils/images/images.dart';
+import '../../../../utils/images/images.dart';
 import '../login/ui/login_screen.dart';
 
 

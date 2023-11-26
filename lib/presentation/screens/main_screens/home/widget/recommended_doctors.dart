@@ -1,0 +1,79 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:flutter/material.dart';
+
+
+
+class NearBy extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 230,
+      child: ListView.separated(
+          physics:const BouncingScrollPhysics(),
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) =>
+        Stack(
+          children: [
+            InkWell(
+              onTap: () {
+
+              },
+              child: Container(
+                width: 187,
+                height: 230,
+                decoration: ShapeDecoration(
+                  color: Colors.lightBlueAccent,
+                  // image: DecorationImage(
+                  //   image: NetworkImage(model.logo!),
+                  //   fit: BoxFit.cover,
+                  // ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0.3,
+              child: Container(
+                height: 50,
+                width: 187,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+                      bottomLeft:
+                      Radius.circular(15)), //BorderRadius.all
+                ), //BoxDecoration
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      alignment: Alignment.topRight,
+                      padding: EdgeInsets.only(right: 15, top: 15),
+                      child: Text(
+                        "إسم الطبيب ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+       separatorBuilder: (BuildContext context, int index) {
+         return   SizedBox(width: 15,);
+
+       }, itemCount: 2,),
+    );
+  }
+}
