@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../utils/images/images.dart';
+
 class RecommendedArticals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,11 +22,10 @@ class RecommendedArticals extends StatelessWidget {
                     width: 150,
                     height: 180,
                     decoration: ShapeDecoration(
-                      color: Colors.red,
-                      // image: DecorationImage(
-                      //   image: NetworkImage(model.logo!),
-                      //   fit: BoxFit.cover,
-                      // ),
+                      image: DecorationImage(
+                        image: AssetImage(Images.artical),
+                        fit: BoxFit.fill,
+                      ),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
                     ),
@@ -38,7 +39,7 @@ class RecommendedArticals extends StatelessWidget {
                     maxLines: 2,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

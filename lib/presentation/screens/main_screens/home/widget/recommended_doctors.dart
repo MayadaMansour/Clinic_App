@@ -1,6 +1,8 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../utils/images/images.dart';
+
 
 
 class NearBy extends StatelessWidget {
@@ -23,13 +25,12 @@ class NearBy extends StatelessWidget {
                 width: 187,
                 height: 230,
                 decoration: ShapeDecoration(
-                  color: Colors.lightBlueAccent,
-                  // image: DecorationImage(
-                  //   image: NetworkImage(model.logo!),
-                  //   fit: BoxFit.cover,
-                  // ),
+                  image: DecorationImage(
+                      image: AssetImage(Images.man),
+                       fit: BoxFit.fill,
+                  ),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
+                      borderRadius: BorderRadius.circular(25)),
                 ),
               ),
             ),
@@ -43,9 +44,9 @@ class NearBy extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),
-                      bottomRight: Radius.circular(15),
+                      bottomRight: Radius.circular(25),
                       bottomLeft:
-                      Radius.circular(15)), //BorderRadius.all
+                      Radius.circular(25)), //BorderRadius.all
                 ), //BoxDecoration
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
