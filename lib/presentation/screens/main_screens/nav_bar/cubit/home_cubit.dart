@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../account/ui/account_screen.dart';
 import '../../appointment/ui/appointment_screen.dart';
 import '../../chat/ui/chat_screen.dart';
@@ -17,6 +16,7 @@ class HomeCubit extends Cubit<HomeState> {
   List screens = [
     HomeScreen(),
     AppointmentScreen(),
+
     ChatScreen(),
     PatientScreen(),
     AccountScreen(),

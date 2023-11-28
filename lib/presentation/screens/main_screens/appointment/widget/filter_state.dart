@@ -1,0 +1,1 @@
+enum FilterStatus { Upcoming, Complete, Cancel }
