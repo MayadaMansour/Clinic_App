@@ -9,7 +9,6 @@ class DateTimeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // color: Color(MyColors.bg03),
         borderRadius: BorderRadius.circular(10),
       ),
       width: double.infinity,
@@ -22,14 +21,13 @@ class DateTimeCard extends StatelessWidget {
             children: [
               Icon(
                 Icons.calendar_today,
-                // color: Color(MyColors.primary),
                 size: 15,
               ),
               SizedBox(
                 width: 5,
               ),
               Text(
-                'Mon, July 29',
+                'الأثنين , 29 مايو',
                 style: TextStyle(
                   fontSize: 12,
                   // color: Color(MyColors.primary),
@@ -42,16 +40,14 @@ class DateTimeCard extends StatelessWidget {
             children: [
               Icon(
                 Icons.access_alarm,
-                // color: Color(MyColors.primary),
                 size: 17,
               ),
               SizedBox(
                 width: 5,
               ),
               Text(
-                '11:00 ~ 12:10',
+                '12:00 ~ 11:10',
                 style: TextStyle(
-                  // color: Color(MyColors.primary),
                   fontWeight: FontWeight.bold,
                 ),
               ),
