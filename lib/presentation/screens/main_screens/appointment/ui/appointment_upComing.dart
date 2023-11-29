@@ -18,12 +18,20 @@ class AppointmentUPComing extends StatelessWidget{
                 child: ListView.builder(
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return Card(
+                    return Container(
                       margin: EdgeInsets.only(bottom: 15),
-                      elevation: 15,
-                      shadowColor: Colors.black12,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        shadows: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            offset: new Offset(10.0, 10.0),
+                            blurRadius: 10.0,
+                          ),
+                        ],
                       ),
 
                       child: Padding(
@@ -33,11 +41,24 @@ class AppointmentUPComing extends StatelessWidget{
                           children: [
                             Row(
                               children: [
-                                CircleAvatar(
-                                  backgroundImage: AssetImage(Images.man),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 50,
+                                    width: 50,
+                                    decoration: ShapeDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(Images.man),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(50)),
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
-                                  width: 15,
+                                  width: 10,
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,13 +84,9 @@ class AppointmentUPComing extends StatelessWidget{
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: 5,
-                            ),
+
                             DateTimeCard(),
-                            SizedBox(
-                              height: 5,
-                            ),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

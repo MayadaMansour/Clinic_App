@@ -57,29 +57,7 @@ class SliderPannar extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.bottomRight,
-                  padding: EdgeInsets.only(bottom: 15, right: 15),
-                  child: SizedBox(
-                    width: 85,
-                    height: 45,
-                    child: ElevatedButton(
-                      onPressed: () => buttonCarouselController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.linear),
-                      style: ElevatedButton.styleFrom(
-                        primary: ColorResources.mainColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                      child: Text(
-                        'أقرأ المزيد',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                )
+
               ]))
           .toList(),
       options: CarouselOptions(
@@ -89,7 +67,7 @@ class SliderPannar extends StatelessWidget {
         enableInfiniteScroll: true,
         reverse: false,
         autoPlay: true,
-        autoPlayInterval: Duration(seconds: 7),
+        autoPlayInterval: Duration(seconds: 5),
         autoPlayAnimationDuration: Duration(seconds: 1),
         autoPlayCurve: Curves.fastOutSlowIn,
         scrollDirection: Axis.horizontal,

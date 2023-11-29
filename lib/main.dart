@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notfa/presentation/screens/auth/board/board_screen.dart';
 import 'package:notfa/presentation/screens/auth/login/ui/login_screen.dart';
 import 'package:notfa/presentation/screens/main_screens/nav_bar/ui/home.dart';
+import 'package:notfa/utils/color_resource/color_resources.dart';
 
 
 import 'core/local/cache_helper.dart';
@@ -30,6 +31,7 @@ class ClinicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: ColorResources.background,
       debugShowCheckedModeBanner: false,
       home: startWidget,
     );

@@ -4,37 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:notfa/presentation/screens/main_screens/appointment/ui/appointment_accepted.dart';
 import 'package:notfa/presentation/screens/main_screens/appointment/ui/appointment_onWay.dart';
 import 'package:notfa/utils/color_resource/color_resources.dart';
-
-import '../widget/appointment_card.dart';
-import '../widget/time_card.dart';
 import 'appointment_upComing.dart';
 
-// class AppointmentScreen extends StatelessWidget{
-//   @override
-//   Widget build(BuildContext context) {
-//    return Scaffold(
-//      backgroundColor: ColorResources.background,
-//      appBar: AppBar(
-//        backgroundColor:ColorResources.background ,
-//
-//        title: Text("المواعيد",style: TextStyle(color: ColorResources.mainColor,fontSize: 20,fontWeight: FontWeight.bold),),
-//        centerTitle: true,
-//        automaticallyImplyLeading: false,
-//        elevation: 0,
-//      ),
-//    );
-//   }
-//
-// }
 class AppointmentScreen extends StatelessWidget {
   const AppointmentScreen({Key? key}) : super(key: key);
 
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return Directionality(
       textDirection: TextDirection.rtl,
       child: DefaultTabController(
@@ -66,7 +42,6 @@ class AppointmentScreen extends StatelessWidget {
                 )
               ],
             ),
-
             body: Padding(
               padding: EdgeInsets.all(8.0),
               child: Column(
@@ -75,38 +50,38 @@ class AppointmentScreen extends StatelessWidget {
                     height: 50,
                     decoration: BoxDecoration(
                         color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(25.0)
-                    ),
-                    child:  TabBar(
+                        borderRadius: BorderRadius.circular(25.0)),
+                    child: TabBar(
                       indicator: BoxDecoration(
                           color: ColorResources.mainColor,
-                          borderRadius:  BorderRadius.circular(25.0)
-                      ) ,
+                          borderRadius: BorderRadius.circular(25.0)),
                       labelColor: Colors.white,
                       unselectedLabelColor: Colors.black,
-                      tabs: const  [
-                        Tab(text: 'إستيلام',),
-                        Tab(text: 'مقبول ',),
-                        Tab(text: 'إنتظار',),
+                      tabs: const [
+                        Tab(
+                          text: 'إستيلام',
+                        ),
+                        Tab(
+                          text: 'مقبول ',
+                        ),
+                        Tab(
+                          text: 'إنتظار',
+                        ),
                       ],
                     ),
                   ),
-                   Expanded(
+                  Expanded(
                       child: TabBarView(
-                        children:  [
-                          AppointmentUPComing(),
-                          AppointmentAccepted(),
-                          AppointmentOnTheWay()
-
-                        ],
-                      )
-                  )
+                    children: [
+                      AppointmentUPComing(),
+                      AppointmentAccepted(),
+                      AppointmentOnTheWay()
+                    ],
+                  ))
                 ],
               ),
-            )
-        ),
+            )),
       ),
     );
   }
 }
-
