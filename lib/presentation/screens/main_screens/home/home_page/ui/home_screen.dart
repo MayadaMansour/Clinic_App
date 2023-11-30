@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(color: ColorResources.mainColor,fontSize: 18,fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8,),
-                NearBy(),
+                RecommendedDoctors(),
                 SizedBox(height: 20,),
                 Text(
                    ':المقالات الأكثر شيوعا ',

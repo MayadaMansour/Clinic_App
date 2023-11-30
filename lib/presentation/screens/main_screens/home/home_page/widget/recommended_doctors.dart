@@ -4,7 +4,7 @@ import 'package:notfa/presentation/screens/main_screens/home/doctor_profile/ui/d
 
 import '../../../../../../utils/images/images.dart';
 
-class NearBy extends StatelessWidget {
+class RecommendedDoctors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

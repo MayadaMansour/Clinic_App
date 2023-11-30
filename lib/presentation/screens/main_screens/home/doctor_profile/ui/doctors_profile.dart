@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notfa/presentation/screens/main_screens/home/book_page/ui/booking.dart';
 
 import '../../../../../../utils/color_resource/color_resources.dart';
 import '../../../../../../utils/images/images.dart';
@@ -442,6 +443,11 @@ class DoctorProfile extends StatelessWidget {
 
         floatingActionButton:FloatingActionButton.extended(
           onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BookPage(),
+                ));
           },
           label: const Text("أحجز الأن",style: TextStyle(fontSize: 20),),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
