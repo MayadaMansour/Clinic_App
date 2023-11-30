@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notfa/utils/color_resource/color_resources.dart';
 
-import '../../../../../utils/images/images.dart';
+import '../../../../../../utils/images/images.dart';
+
 
 class SliderPannar extends StatelessWidget {
   final List<String> imgList = [

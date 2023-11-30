@@ -1,9 +1,8 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:notfa/presentation/screens/main_screens/home/doctor_profile/ui/doctors_profile.dart';
 
-import '../../../../../utils/images/images.dart';
-
-
+import '../../../../../../utils/images/images.dart';
 
 class NearBy extends StatelessWidget {
   @override
@@ -11,23 +10,26 @@ class NearBy extends StatelessWidget {
     return SizedBox(
       height: 230,
       child: ListView.separated(
-          physics:const BouncingScrollPhysics(),
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) =>
-        Stack(
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => Stack(
           children: [
             InkWell(
               onTap: () {
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorProfile(),
+                    ));
               },
               child: Container(
                 width: 187,
                 height: 230,
                 decoration: ShapeDecoration(
                   image: DecorationImage(
-                      image: AssetImage(Images.man),
-                       fit: BoxFit.fill,
+                    image: AssetImage(Images.man),
+                    fit: BoxFit.fill,
                   ),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
@@ -45,8 +47,7 @@ class NearBy extends StatelessWidget {
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15),
                       bottomRight: Radius.circular(25),
-                      bottomLeft:
-                      Radius.circular(25)), //BorderRadius.all
+                      bottomLeft: Radius.circular(25)), //BorderRadius.all
                 ), //BoxDecoration
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,17 +65,19 @@ class NearBy extends StatelessWidget {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
             )
           ],
         ),
-       separatorBuilder: (BuildContext context, int index) {
-         return   SizedBox(width: 15,);
-
-       }, itemCount: 2,),
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: 15,
+          );
+        },
+        itemCount: 2,
+      ),
     );
   }
 }

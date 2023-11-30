@@ -8,7 +8,8 @@ import '../../../../../utils/color_resource/color_resources.dart';
 import '../../../../../utils/images/images.dart';
 import '../../../../widget/widgets/coustoms/coustom_bottom.dart';
 import '../../../../widget/widgets/coustoms/coustom_text_form.dart';
-import '../../../main_screens/home/ui/home_screen.dart';
+
+import '../../../main_screens/home/home_page/ui/home_screen.dart';
 import '../cubit/register_cubit.dart';
 import '../cubit/register_state.dart';
 

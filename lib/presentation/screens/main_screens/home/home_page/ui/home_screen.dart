@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notfa/utils/color_resource/color_resources.dart';
-
-import '../../../../widget/widgets/coustoms/title_text.dart';
-
 import '../widget/recommended_doctors.dart';
 import '../widget/recommended_articals.dart';
 import '../widget/slider_pannar.dart';

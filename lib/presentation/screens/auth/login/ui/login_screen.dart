@@ -6,7 +6,8 @@ import '../../../../../utils/images/images.dart';
 import '../../../../widget/widgets/coustoms/coustom_bottom.dart';
 import '../../../../widget/widgets/coustoms/coustom_text_form.dart';
 import '../../../../widget/widgets/coustoms/coustom_toast.dart';
-import '../../../main_screens/home/ui/home_screen.dart';
+
+import '../../../main_screens/home/home_page/ui/home_screen.dart';
 import '../../../main_screens/nav_bar/ui/home.dart';
 import '../../register/ui/register_screen.dart';
 import '../cubit/cubit_login.dart';

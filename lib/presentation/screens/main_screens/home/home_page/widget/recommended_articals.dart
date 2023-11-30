@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/images/images.dart';
+import '../../../../../../utils/images/images.dart';
+
 
 class RecommendedArticals extends StatelessWidget {
   @override
