@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/color_resource/color_resources.dart';
-import '../../../../../utils/images/images.dart';
+import '../../../../../../utils/color_resource/color_resources.dart';
+import '../../../../../../utils/images/images.dart';
 import '../widget/time_card.dart';
 
 class AppointmentUPComing extends StatelessWidget{

@@ -30,7 +30,7 @@ class ArticalsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 200,
+                  height: 150,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
                     banner!,

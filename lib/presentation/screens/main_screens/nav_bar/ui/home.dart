@@ -38,24 +38,24 @@ class NavHome extends StatelessWidget {
                             size: 28,
                           ),
                           label: 'الرئيسيه'),
-                      BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.event_note_outlined,
-                            size: 28,
-                          ),
-                          label: 'المواعيد'),
+                      // BottomNavigationBarItem(
+                      //     icon: Icon(
+                      //       Icons.event_note_outlined,
+                      //       size: 28,
+                      //     ),
+                      //     label: 'المواعيد'),
                       BottomNavigationBarItem(
                           icon: Icon(
                             Icons.chat_outlined,
                             size: 28,
                           ),
                           label: 'المحادثه'),
-                      BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.people_alt_outlined,
-                            size: 28,
-                          ),
-                          label: 'المرضى'),
+                      // BottomNavigationBarItem(
+                      //     icon: Icon(
+                      //       Icons.people_alt_outlined,
+                      //       size: 28,
+                      //     ),
+                      //     label: 'المرضى'),
                       BottomNavigationBarItem(
                           icon: Icon(
                             CupertinoIcons.person,

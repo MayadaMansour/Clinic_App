@@ -81,7 +81,7 @@ class ChatScreen extends StatelessWidget{
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'أسم المريض',
+                                            'أسم الطبيب',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 18

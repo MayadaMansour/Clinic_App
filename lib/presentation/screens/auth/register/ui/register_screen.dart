@@ -123,6 +123,28 @@ class RegisterScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CoustomTextForm(
+                      controller: phoneController,
+                      validator: (data) {
+                        if (data!.isEmpty) {
+                          return "برجاء إدخال رقم الهاتف ";
+                        }
+                        return null;
+                      },
+                      label: "رقم الهاتف",
+                      text: TextInputType.phone,
+                      museTextColor: ColorResources.mainColor,
+                      borderColor: ColorResources.mainColor,
+                      borderReduse: 10,
+                      labelColor: Colors.grey,
+                      userTextColor: Colors.black,
+                      prefIcon: Icons.phone_enabled_sharp,
+                      prefIconColor: ColorResources.mainColor,
+                      passwordText: false,
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    CoustomTextForm(
                       controller: passwordController,
                       validator: (value) {
                         if (value!.isEmpty) {
