@@ -5,4 +5,5 @@ class Images {
   static const String pannar = 'assets/images/cover.jpg';
   static const String man = 'assets/images/images.jpeg';
   static const String artical = 'assets/images/artical.jpg';
+  static const String booking = 'assets/images/booking.png';
 }

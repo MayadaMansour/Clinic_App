@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:notfa/presentation/screens/main_screens/home/book_page/widget/afternon_card.dart';
 import 'package:notfa/presentation/screens/main_screens/home/book_page/widget/night_card.dart';
 
+import '../../../../../../utils/bottons/icons_botton.dart';
 import '../../../../../../utils/color_resource/color_resources.dart';
 import '../../../../../../utils/images/images.dart';
+import '../../dialog/dialogs.dart';
+
+import '../../../../../../utils/bottons/icons_layout_bottons.dart';
 import '../widget/days_card.dart';
 import '../widget/morning_card.dart';
 
@@ -134,11 +138,76 @@ class BookPage extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BookPage(),
-                  ));
+              Dialogs.bottomMaterialDialog(
+                  msg:
+                      'إذا كنت ترغب بتأكيد الحجز برجاء القدوم إلى العياده قبل الميعاد المختار بساعه',
+                  title: 'تأكيد الحجز',
+                  msgStyle: TextStyle(fontSize: 18),
+                  context: context,
+                  actions: [
+                    IconsButton(
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                elevation: 50,
+                                actions: [
+                                  IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.cancel_outlined,
+                                        color: ColorResources.mainColor,
+                                      ))
+                                ],
+                                actionsAlignment: MainAxisAlignment.end,
+                                icon: Icon(
+                                  Icons.offline_pin,
+                                  color: ColorResources.mainColor,
+                                  size: 70,
+                                ),
+                                title: Directionality(
+                                    textDirection: TextDirection.rtl,
+                                    child: Text("تم")),
+                                titleTextStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 20),
+                                backgroundColor: ColorResources.background,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20))),
+                                content: Directionality(
+                                    textDirection: TextDirection.rtl,
+                                    child: Text(
+                                      "تم تأكيد الحجز بنجاح",
+                                      textAlign: TextAlign.center,
+                                    )),
+                              );
+                            });
+                      },
+                      text: 'تأكيد',
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      iconData: Icons.done_outline_sharp,
+                      color: ColorResources.mainColor,
+                      textStyle: TextStyle(color: Colors.white),
+                      iconColor: Colors.white,
+                    ),
+                    IconsOutlineButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      text: 'ألغاء',
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      iconData: Icons.cancel_outlined,
+                      textStyle: TextStyle(color: Colors.grey),
+                      iconColor: Colors.grey,
+                    ),
+                  ]);
             },
             label: const Text(
               "تأكيد الحجز",
@@ -153,4 +222,37 @@ class BookPage extends StatelessWidget {
               FloatingActionButtonLocation.centerFloat,
         ));
   }
+
+// showAlertDialog(BuildContext context) {
+//   // set up the buttons
+//   Widget cancelButton = TextButton(
+//     child: Text("إلغاء"),
+//     onPressed: () {
+//       Navigator.pop(context);
+//     },
+//   );
+//   Widget continueButton = TextButton(
+//     child: Text("تأكيد"),
+//     onPressed: () {},
+//   );
+//
+//
+//   AlertDialog alert = AlertDialog(
+//     title: Text("تأكيد الحجز"),
+//     content: Text(
+//         "إذا كنت ستأكد الحجز الرجاء بالقدوم إلى العياده قبل الميعاد المختار بساعه "),
+//     actions: [
+//       cancelButton,
+//       continueButton,
+//     ],
+//   );
+//
+//   // show the dialog
+//   showDialog(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return alert;
+//     },
+//   );
+// }
 }
