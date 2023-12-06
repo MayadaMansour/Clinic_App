@@ -14,7 +14,6 @@ class ChatLoginCubit extends Cubit<ChatLoginStates> {
   bool showPassword = true;
   IconData icona = Icons.visibility_outlined;
 
-  // late ShopLoginModel loginModel;
 
   void changeIcona() {
     showPassword = !showPassword;
@@ -24,12 +23,23 @@ class ChatLoginCubit extends Cubit<ChatLoginStates> {
     emit(ChatChangePasswordVisibilityState());
   }
 
-  void usersLogin({required String email, required String password}) {
+  void userLogin({
+    required String email,
+    required String password,
+  }) {
     emit(ChatLoginLoadingState());
+
     FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password).then((value) {
-      emit(ChatLoginSuccessState());
-    }).catchError((error){
+        .signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    )
+        .then((value) {
+      
+      emit(ChatLoginSuccessState(value.user!.uid));
+    })
+        .catchError((error)
+    {
       emit(ChatLoginErrorState(error.toString()));
     });
   }

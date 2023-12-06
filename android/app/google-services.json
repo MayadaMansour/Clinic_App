@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "698493061319",
+    "project_id": "notfa-healthcare",
+    "storage_bucket": "notfa-healthcare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698493061319:android:d6b0e95e418a6b4342d6e2",
+        "android_client_info": {
+          "package_name": "com.example.notfa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmjt7X06N3JzEFt7PoHBUs2har25P7lxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

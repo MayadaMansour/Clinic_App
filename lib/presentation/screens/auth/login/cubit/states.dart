@@ -7,9 +7,11 @@ class ChatLoginLoadingState extends ChatLoginStates {}
 
 class ChatLoginSuccessState extends ChatLoginStates
 {
-  //final ShopLoginModel loginModel;
 
-  //ShopLoginSuccessState(this.loginModel);
+  final String uId;
+  ChatLoginSuccessState(this.uId);
+
+
 }
 
 class ChatLoginErrorState extends ChatLoginStates

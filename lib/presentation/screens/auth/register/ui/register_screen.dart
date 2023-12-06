@@ -28,11 +28,10 @@ class RegisterScreen extends StatelessWidget {
       child: BlocConsumer<RegisterCubit, ChatRegisterState>(
         listener: (context, state) {
           if (state is CreateUserSuccessState) {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-                (route) => false);
+
+            // navigateAndFinish(context, HomeScreen());
           }
+
         },
         builder: (context, state) {
           RegisterCubit cubit = RegisterCubit.get(context);
@@ -85,13 +84,14 @@ class RegisterScreen extends StatelessWidget {
                           } else {
                             return null;
                           }
+                          //tUK(Jf-CNRHMnD^6b}Y@pX
                         },
                         prefIconColor: ColorResources.mainColor ,
                         prefIcon: Icons.person,
-                        controller: emailController,
+                        controller: nameController,
                         passwordText: false,
                         label: "أسم المستخدم",
-                        text: TextInputType.emailAddress,
+                        text: TextInputType.name,
                         museTextColor: ColorResources.background,
                         borderColor: ColorResources.mainColor,
                         borderReduse: 10,

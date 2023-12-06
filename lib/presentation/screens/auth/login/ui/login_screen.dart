@@ -1,7 +1,9 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notfa/utils/color_resource/color_resources.dart';
 
+import '../../../../../core/local/cache_helper.dart';
 import '../../../../../utils/images/images.dart';
 import '../../../../widget/widgets/coustoms/coustom_bottom.dart';
 import '../../../../widget/widgets/coustoms/coustom_text_form.dart';
@@ -32,10 +34,19 @@ class LoginScreen extends StatelessWidget {
               state: ToastStates.ERROR,
             );
           }
-           Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
-              (route) => false);
+          if(state is ChatLoginSuccessState)
+          {
+            CachHelper.saveData(
+              key: 'uId',
+              value: state.uId,
+            ).then((value)
+            {
+              navigateAndFinish(
+                context,
+                HomeScreen(),
+              );
+            });
+          }
         },
         builder: (context, state) {
           ChatLoginCubit cubit = ChatLoginCubit.get(context);
@@ -43,7 +54,7 @@ class LoginScreen extends StatelessWidget {
             appBar: AppBar(
               title: Container(
                 alignment: Alignment.topRight,
-                padding: EdgeInsets.symmetric(vertical: 20,horizontal: 10),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                 child: Text(
                   "تسجيل الدخول",
                   style: TextStyle(
@@ -136,25 +147,24 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             height: 30,
                           ),
-                          coustomBottom(
-                            textColor: Colors.white,
-                            bgColor: ColorResources.mainColor,
-                            // onTap: () {
-                            //   if (formKey.currentState!.validate()) {
-                            //     cubit.usersLogin(
-                            //         email: emailController.text,
-                            //         password: passwordController.text);
-                            //   }
-                            // },
-                            text: "الدخول ",
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => NavHome(),
-                                  ));
-                            }),
-
+                          ConditionalBuilder(
+                            condition: state is! ChatLoginLoadingState,
+                            builder: (context) => coustomBottom(
+                                textColor: Colors.white,
+                                bgColor: ColorResources.mainColor,
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    cubit.userLogin(
+                                        email: emailController.text,
+                                        password: passwordController.text);
+                                  }
+                                },
+                                text: "الدخول"),
+                            fallback: (context) => const Center(
+                                child: CircularProgressIndicator(
+                              color: Colors.black,
+                            )),
+                          ),
                         ]),
                     SizedBox(
                       height: 5,

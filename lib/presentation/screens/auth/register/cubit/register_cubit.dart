@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,7 +16,6 @@ class RegisterCubit extends Cubit<ChatRegisterState> {
   bool showPassword = true;
   IconData icona = Icons.visibility_outlined;
 
-
   void changeIcona() {
     showPassword = !showPassword;
     showPassword
@@ -26,12 +24,11 @@ class RegisterCubit extends Cubit<ChatRegisterState> {
     emit(LoginChangeIcon());
   }
 
-
   void usersRegister(
       {required String email,
-        required String password,
-        required String name,
-        required String phone}) {
+      required String password,
+      required String name,
+      required String phone}) {
     emit(ChatRegisterLoadingState());
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password)
@@ -42,7 +39,7 @@ class RegisterCubit extends Cubit<ChatRegisterState> {
           name: email,
           phone: phone,
           uId: value.user!.uid);
-      emit(ChatRegisterSuccessState());
+      // emit(ChatRegisterSuccessState());
     }).catchError((error) {
       emit(ChatRegisterErrorState(error.toString()));
     });
@@ -50,12 +47,12 @@ class RegisterCubit extends Cubit<ChatRegisterState> {
 
   void createUser(
       {required String email,
-        required String password,
-        required String name,
-        required String phone,
-        required String uId}) {
+      required String password,
+      required String name,
+      required String phone,
+      required String uId}) {
     UserModel model = UserModel(
-        name: name, email: email, phone: phone, password: password, uId: uId);
+        name: name, email: email, phone: phone, password: password, uId: uId,isEmailVerified: false);
     FirebaseFirestore.instance
         .collection("users")
         .doc(uId)
@@ -66,5 +63,4 @@ class RegisterCubit extends Cubit<ChatRegisterState> {
       emit(CreateUserErrorState(error.toString()));
     });
   }
-
 }
