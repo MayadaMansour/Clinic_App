@@ -54,14 +54,14 @@ class ClinicApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocProvider(
-    //   create: (context) => NotfaCubit()
-    //     ..getUserData(),
-    //   child:
-    return  MaterialApp(
+    return BlocProvider(
+      create: (context) => NotfaCubit()
+        ..getUserData(),
+      child:
+      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: startWidget,
-      // ),
+       ),
     );
   }
 }
