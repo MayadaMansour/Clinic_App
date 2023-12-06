@@ -11,18 +11,17 @@ class NotfaCubit extends Cubit<NotfaState>{
 
     UserModel? model;
 
-  void getUserData(){
+
+  void getUserData() {
     emit(NotfaGetUserLoadingState());
-    FirebaseFirestore.instance.collection("users").doc(uId).get().then((value){
-      print(value.data());
-      model= UserModel.fromjson(value.data()!);
+    FirebaseFirestore.instance.collection('users').doc(uId).get().then((value) {
+      model = UserModel.fromJson(value.data()!);
       emit(NotfaGetUserSucessState());
-    }).catchError((error){
+    }).catchError((error) {
+      print(error.toString());
       emit(NotfaGetUserErrorState(error.toString()));
     });
-
   }
-
 
   }
 

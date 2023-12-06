@@ -2,40 +2,50 @@ class UserModel {
   String? name;
   String? email;
   String? phone;
-  String? password;
   String? uId;
+  String? image;
+  String? cover;
+  String? bio;
   bool? isEmailVerified;
+  String? password;
 
   UserModel({
-    this.name,
     this.email,
+    this.name,
     this.phone,
-    this.password,
     this.uId,
-    this.isEmailVerified
+    this.image,
+    this.cover,
+    this.bio,
+    this.isEmailVerified,
+    this.password ,
   });
 
-
-  UserModel.fromjson(Map<String, dynamic> json){
-    name=json["name"];
-    email=json["email"];
-    phone=json["phone"];
-    password=json["password"];
-    uId=json["uId"];
-    isEmailVerified=json["isEmailVerified"];
+  UserModel.fromJson(Map<String, dynamic> json)
+  {
+    email = json['email'];
+    name = json['name'];
+    phone = json['phone'];
+    uId = json['uId'];
+    image = json['image'];
+    cover = json['cover'];
+    bio = json['bio'];
+    isEmailVerified = json['isEmailVerified'];
+    password = json['password'];
   }
 
-
-  Map<String,dynamic> toMap(){
-    return{
-      "name":name,
-      "email":email,
-      "phone":phone,
-      "password":password,
-      "uId":uId,
-      "isEmailVerified":isEmailVerified,
-
+  Map<String, dynamic> toMap()
+  {
+    return {
+      'name':name,
+      'email':email,
+      'phone':phone,
+      'uId':uId,
+      'image':image,
+      'cover':cover,
+      'bio':bio,
+      'isEmailVerified':isEmailVerified,
+      'password':password,
     };
-
   }
 }

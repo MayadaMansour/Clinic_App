@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notfa/core/main_cubit/main_state.dart';
 import 'package:notfa/presentation/screens/auth/board/board_screen.dart';
 import 'package:notfa/presentation/screens/auth/login/ui/login_screen.dart';
 import 'package:notfa/presentation/screens/main_screens/home/home_page/ui/home_screen.dart';
@@ -13,31 +14,37 @@ import 'core/main_cubit/cubit_main.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
    await Firebase.initializeApp();
-  await CachHelper.init();
+
+  // DioHelper.init();
+  await CacheHelper.init();
+
   Widget widget;
-  var onBoarding = CachHelper.getData(key: "onBoarding");
-  var uId = CachHelper.getData(key: "uId");
-  // if (onBoarding != null) {
-  //   if (uId != null) {
-  //     widget =  HomeScreen();
-  //   } else {
-  //     widget = LoginScreen();
+
+  //bool onBoarding = CacheHelper.getData(key: 'onBoarding');
+  //token = CacheHelper.getData(key: 'token');
+
+   var uId = CacheHelper.getData(key: 'uId');
+
+  // if(onBoarding != null)
+  // {
+  //   if(token != null) widget = ShopLayout();
+  //   else widget = ShopLoginScreen();
+  // } else
+  //   {
+  //     widget = OnBoardingScreen();
   //   }
-  // } else {
-  //   widget =  BoardScreen();
-  // }
 
-    //
-    // if (uId != null) {
-    //   widget =  HomeScreen();
-    // } else {
-    //   widget = LoginScreen();
-    // }
-  // tUK(Jf-CNRHMnD^6b}Y@pX
+  if (uId != null) {
+    widget = HomeScreen();
+  } else {
+    widget = LoginScreen();
+  }
 
-
-  runApp(ClinicApp());
+  runApp(ClinicApp(
+    startWidget: widget,
+  ));
 }
 
 class ClinicApp extends StatelessWidget {
@@ -50,11 +57,10 @@ class ClinicApp extends StatelessWidget {
     // return BlocProvider(
     //   create: (context) => NotfaCubit()
     //     ..getUserData(),
-    //
     //   child:
-      return MaterialApp(
+    return  MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: BoardScreen(),
+        home: startWidget,
       // ),
     );
   }

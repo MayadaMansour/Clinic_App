@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
           }
           if(state is ChatLoginSuccessState)
           {
-            CachHelper.saveData(
+            CacheHelper.saveData(
               key: 'uId',
               value: state.uId,
             ).then((value)
