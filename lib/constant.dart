@@ -22,6 +22,5 @@ void signOut(context)
 
 
 
-String token = '';
-
-String uId = '';
+String token = ' ';
+ String uId = ' ';

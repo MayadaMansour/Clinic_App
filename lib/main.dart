@@ -25,7 +25,7 @@ Future<void> main() async {
   //bool onBoarding = CacheHelper.getData(key: 'onBoarding');
   //token = CacheHelper.getData(key: 'token');
 
-   var uId = CacheHelper.getData(key: 'uId');
+  uId = CacheHelper.getData(key: 'uId');
 
   // if(onBoarding != null)
   // {
@@ -36,7 +36,7 @@ Future<void> main() async {
   //     widget = OnBoardingScreen();
   //   }
 
-  if (uId != null) {
+  if (!uId.isEmpty) {
     widget = HomeScreen();
   } else {
     widget = LoginScreen();

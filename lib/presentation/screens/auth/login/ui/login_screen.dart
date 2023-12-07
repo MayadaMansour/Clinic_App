@@ -103,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                                 }
                               },
                               prefIconColor: ColorResources.mainColor,
-                              prefIcon: Icons.person,
+                              prefIcon: Icons.email,
                               controller: emailController,
                               passwordText: false,
                               label: "أسم المستخدم",
