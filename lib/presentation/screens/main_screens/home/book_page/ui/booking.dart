@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:notfa/presentation/screens/main_screens/home/book_page/widget/afternon_card.dart';
 import 'package:notfa/presentation/screens/main_screens/home/book_page/widget/night_card.dart';
@@ -147,46 +148,19 @@ class BookPage extends StatelessWidget {
                   actions: [
                     IconsButton(
                       onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                elevation: 50,
-                                actions: [
-                                  IconButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      icon: Icon(
-                                        Icons.cancel_outlined,
-                                        color: ColorResources.mainColor,
-                                      ))
-                                ],
-                                actionsAlignment: MainAxisAlignment.end,
-                                icon: Icon(
-                                  Icons.offline_pin,
-                                  color: ColorResources.mainColor,
-                                  size: 70,
-                                ),
-                                title: Directionality(
-                                    textDirection: TextDirection.rtl,
-                                    child: Text("تم")),
-                                titleTextStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 20),
-                                backgroundColor: ColorResources.background,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20))),
-                                content: Directionality(
-                                    textDirection: TextDirection.rtl,
-                                    child: Text(
-                                      "تم تأكيد الحجز بنجاح",
-                                      textAlign: TextAlign.center,
-                                    )),
-                              );
-                            });
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.SUCCES,
+                          animType: AnimType.rightSlide,
+                          title: 'تم',
+                          titleTextStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 22),
+                          dialogBackgroundColor: ColorResources.background,
+                          desc: 'تم تأكيد الحجز بنجاح ',
+                          autoHide: Duration(seconds: 4),
+                        )..show();
                       },
                       text: 'تأكيد',
                       shape: RoundedRectangleBorder(

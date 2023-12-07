@@ -15,26 +15,26 @@ import 'core/main_cubit/cubit_main.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-   await Firebase.initializeApp();
+  await Firebase.initializeApp();
 
   // DioHelper.init();
   await CacheHelper.init();
 
   Widget widget;
 
-  //bool onBoarding = CacheHelper.getData(key: 'onBoarding');
-  //token = CacheHelper.getData(key: 'token');
-
+  //onBoarding = CacheHelper.getData(key: 'onBoarding');
+ // token = CacheHelper.getData(key: 'token');
   uId = CacheHelper.getData(key: 'uId');
 
-  // if(onBoarding != null)
-  // {
-  //   if(token != null) widget = ShopLayout();
-  //   else widget = ShopLoginScreen();
-  // } else
-  //   {
-  //     widget = OnBoardingScreen();
+  // if (onBoarding.isEmpty) {
+  //   if (!uId.isEmpty) {
+  //     widget = HomeScreen();
+  //   } else {
+  //     widget = LoginScreen();
   //   }
+  // } else {
+  //   widget = BoardScreen();
+  // }
 
   if (!uId.isEmpty) {
     widget = HomeScreen();
@@ -55,13 +55,11 @@ class ClinicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotfaCubit()
-        ..getUserData(),
-      child:
-      MaterialApp(
+      create: (context) => NotfaCubit()..getUserData(),
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: startWidget,
-       ),
+      ),
     );
   }
 }

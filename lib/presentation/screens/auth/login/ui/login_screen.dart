@@ -1,4 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notfa/utils/color_resource/color_resources.dart';
@@ -34,13 +35,11 @@ class LoginScreen extends StatelessWidget {
               state: ToastStates.ERROR,
             );
           }
-          if(state is ChatLoginSuccessState)
-          {
+          if (state is ChatLoginSuccessState) {
             CacheHelper.saveData(
               key: 'uId',
               value: state.uId,
-            ).then((value)
-            {
+            ).then((value) {
               navigateAndFinish(
                 context,
                 HomeScreen(),
@@ -97,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                           CoustomTextForm(
                               validator: (data) {
                                 if (data!.isEmpty) {
-                                  return "الرجاء التأكد من دخول الأسم ";
+                                  return "الرجاء التأكد من دخول البريد الإلكتروني ";
                                 } else {
                                   return null;
                                 }
@@ -106,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                               prefIcon: Icons.email,
                               controller: emailController,
                               passwordText: false,
-                              label: "أسم المستخدم",
+                              label: "البريد الإلكتروني",
                               text: TextInputType.emailAddress,
                               museTextColor: ColorResources.background,
                               borderColor: ColorResources.mainColor,
@@ -144,6 +143,32 @@ class LoginScreen extends StatelessWidget {
                             prefIconColor: ColorResources.mainColor,
                             suffixIconeColor: ColorResources.mainColor,
                           ),
+                          TextButton(
+                              onPressed: () async {
+                                if (emailController.text == "") {
+                                  coustomToast(
+                                    text: "برجاء كتابه البريد الإلكتروني أولا",
+                                    state: ToastStates.WARNING,
+                                  );
+                                  return;
+                                }
+                                try {
+                                  await FirebaseAuth.instance
+                                      .sendPasswordResetEmail(
+                                          email: emailController.text);
+                                  coustomToast(
+                                    text:
+                                        "تم إرسال رابط لإعاده تعين كلمه المرور",
+                                    state: ToastStates.SUCCESS,
+                                  );
+                                } catch (e) {
+                                  coustomToast(
+                                    text: "برجاء إدخال بريد إلكتروني صحيح",
+                                    state: ToastStates.ERROR,
+                                  );
+                                }
+                              },
+                              child: Text("لم تتذكر كلمه المرور؟")),
                           SizedBox(
                             height: 30,
                           ),
