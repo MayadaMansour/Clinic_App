@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
             appBar: AppBar(
               title: Container(
                 alignment: Alignment.topRight,
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                 child: Text(
                   "تسجيل الدخول",
                   style: TextStyle(
@@ -64,7 +64,7 @@ class LoginScreen extends StatelessWidget {
               ),
               backgroundColor: Colors.transparent,
               elevation: 0,
-              toolbarHeight: 80,
+              toolbarHeight: 60,
             ),
             backgroundColor: ColorResources.background,
             body: Padding(
@@ -74,14 +74,15 @@ class LoginScreen extends StatelessWidget {
                 child: ListView(
                   children: [
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Center(
                             child: Container(
-                              height: 250,
+                              height: 230,
                               width: 300,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
@@ -113,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                               labelColor: Colors.grey,
                               userTextColor: Colors.black),
                           SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
                           CoustomTextForm(
                             controller: passwordController,
@@ -170,7 +171,7 @@ class LoginScreen extends StatelessWidget {
                               },
                               child: Text("لم تتذكر كلمه المرور؟")),
                           SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           ConditionalBuilder(
                             condition: state is! ChatLoginLoadingState,
@@ -192,7 +193,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ]),
                     SizedBox(
-                      height: 5,
+                      height: 3,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 10),

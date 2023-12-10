@@ -26,7 +26,7 @@ class UserModel {
     email = json['email'];
     name = json['name'];
     phone = json['phone'];
-    uId = json['uId'];
+    uId = json['uId'] ;
     image = json['image'];
     cover = json['cover'];
     bio = json['bio'];

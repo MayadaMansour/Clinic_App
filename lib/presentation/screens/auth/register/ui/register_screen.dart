@@ -248,18 +248,19 @@ class RegisterScreen extends StatelessWidget {
             appBar: AppBar(
               title: Container(
                 alignment: Alignment.topRight,
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                 child: Text(
-                  "إتشاء حساب",
+                  "إنشاء حساب",
                   style: TextStyle(
                       color: ColorResources.mainColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 25),
                 ),
               ),
+              automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              toolbarHeight: 80,
+              toolbarHeight: 60,
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -273,7 +274,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     Center(
                       child: Container(
-                        height: 250,
+                        height: 230,
                         width: 300,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
@@ -283,7 +284,7 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     CoustomTextForm(
                         validator: (data) {
@@ -306,7 +307,7 @@ class RegisterScreen extends StatelessWidget {
                         labelColor: Colors.grey,
                         userTextColor: Colors.black),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     CoustomTextForm(
                       controller: emailController,
@@ -328,7 +329,7 @@ class RegisterScreen extends StatelessWidget {
                       passwordText: false,
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     CoustomTextForm(
                       controller: phoneController,
@@ -350,7 +351,7 @@ class RegisterScreen extends StatelessWidget {
                       passwordText: false,
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     CoustomTextForm(
                       controller: passwordController,
@@ -380,7 +381,7 @@ class RegisterScreen extends StatelessWidget {
                       suffixIconeColor: ColorResources.mainColor,
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     coustomBottom(
                         textColor: Colors.white,

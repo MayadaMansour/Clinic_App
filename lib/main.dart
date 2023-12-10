@@ -22,25 +22,21 @@ Future<void> main() async {
 
   Widget widget;
 
-  //onBoarding = CacheHelper.getData(key: 'onBoarding');
+  onBoarding = CacheHelper.getData(key: 'onBoarding');
  // token = CacheHelper.getData(key: 'token');
   uId = CacheHelper.getData(key: 'uId');
 
-  // if (onBoarding.isEmpty) {
-  //   if (!uId.isEmpty) {
-  //     widget = HomeScreen();
-  //   } else {
-  //     widget = LoginScreen();
-  //   }
-  // } else {
-  //   widget = BoardScreen();
-  // }
-
-  if (!uId.isEmpty) {
-    widget = HomeScreen();
+  if (onBoarding != null) {
+    if ( uId !=null) {
+      widget = HomeScreen();
+    } else {
+      widget = LoginScreen();
+    }
   } else {
-    widget = LoginScreen();
+    widget = BoardScreen();
   }
+
+
 
   runApp(ClinicApp(
     startWidget: widget,
